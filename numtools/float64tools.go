@@ -1,4 +1,4 @@
-package tools
+package numtools
 
 import "math"
 
@@ -14,7 +14,7 @@ func ComputeAVG(values []float64) float64 {
 
 func ComputeSTDEVP(values []float64) float64 {
 	var (
-		mean         float64
+		AVG          float64
 		vp           []float64
 		stdDiv, temp float64
 	)
@@ -22,10 +22,10 @@ func ComputeSTDEVP(values []float64) float64 {
 	vp = make([]float64, len(values))
 
 	/*Calculate mean of the data points*/
-	mean = ComputeAVG(values)
+	AVG = ComputeAVG(values)
 	/*Calculate standard deviation of individual data points*/
 	for i, v := range values {
-		temp = v - mean
+		temp = v - AVG
 		vp[i] = (temp * temp)
 	}
 
